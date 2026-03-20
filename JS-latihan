@@ -1,4 +1,7 @@
-let age = 25;
-console.log(25);
-age = 30;
-console.log(30);
+'use-strict';
+
+console.log("Hello, World!");
+console.log("My Name is Lucas Diavolo");
+
+
+
