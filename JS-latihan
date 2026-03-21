@@ -3,5 +3,13 @@
 console.log("Hello, World!");
 console.log("My Name is Lucas Diavolo");
 
+let firstName = "Lucas";
+let lastName = "Diavolo";
+
+let fullName = firstName + " " + lastName
+console.log(fullName);
+
+
+
 
 
