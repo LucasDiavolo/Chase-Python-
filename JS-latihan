@@ -9,6 +9,12 @@ let lastName = "Diavolo";
 let fullName = firstName + " " + lastName
 console.log(fullName);
 
+let greeting = "Hello";
+greeting += ", Lucas";
+
+console.log(greeting);
+
+
 
 
 
