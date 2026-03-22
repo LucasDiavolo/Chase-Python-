@@ -6,13 +6,22 @@ console.log("My Name is Lucas Diavolo");
 let firstName = "Lucas";
 let lastName = "Diavolo";
 
+// simbol + digunakan untuk menyatukan dua atau variable yang berbeda
 let fullName = firstName + " " + lastName
 console.log(fullName);
 
+// simbol += digunakan untuk menyatukan dua atau lebih variable yang sudah ada atau sama
 let greeting = "Hello";
 greeting += ", Lucas";
 
 console.log(greeting);
+
+// concat() method digunakan untuk menggabungkan beberapa string secara langsung
+let introGreeting1 = "Welcome";
+let introGreeting2 = ", Lucas Diavolo";
+
+let introGreetingResult = introGreeting1.concat(' ', introGreeting2);
+console.log(introGreetingResult);
 
 
 
