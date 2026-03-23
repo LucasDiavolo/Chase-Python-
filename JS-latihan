@@ -23,6 +23,43 @@ let introGreeting2 = ", Lucas Diavolo";
 let introGreetingResult = introGreeting1.concat(' ', introGreeting2);
 console.log(introGreetingResult);
 
+let adjective;
+adjective = "Ethereal";
+
+let noun;
+noun = "Artifact";
+
+let verb;
+verb = "Traverse";
+
+let place;
+place = "Tundra";
+
+let adjective2;
+adjective2 = "Tempestuous";
+
+let noun2;
+noun2 = "Phantom";
+
+const firstStory = "Once upon a time, there was a(n) " + adjective + " " + noun + " who loved to eat " + noun2 + ". The " + noun + " lived in a " + place + " and had " + adjective2 + " nostrils that blew fire when it was " + verb + ".";
+console.log('First story: '+ firstStory);
+
+adjective = "Mutated";
+
+noun = "Tyrant";
+
+verb = "Evacuate";
+
+place = "Police Station";
+
+adjective2 = "Desperate";
+
+noun2 = "Herb";
+
+const secondStory = "Once upon a time, there was a(n) " + adjective + " " + noun + " who loved to eat " + noun2 + ". The " + noun + " lived in a " + place + " and had " + adjective2 + " nostrils that blew fire when it was " + verb + ".";
+console.log('Second story: ' + secondStory);
+
+
 
 
 
