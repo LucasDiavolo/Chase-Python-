@@ -10,7 +10,7 @@ let lastName = "Diavolo";
 let fullName = firstName + " " + lastName
 console.log(fullName);
 
-// simbol += digunakan untuk menyatukan dua atau lebih variable yang sudah ada atau sama
+// simbol += digunakan untuk menyatukan atau menambahkan string yang sudah ada
 let greeting = "Hello";
 greeting += ", Lucas";
 
@@ -59,6 +59,15 @@ noun2 = "Herb";
 const secondStory = "Once upon a time, there was a(n) " + adjective + " " + noun + " who loved to eat " + noun2 + ". The " + noun + " lived in a " + place + " and had " + adjective2 + " nostrils that blew fire when it was " + verb + ".";
 console.log('Second story: ' + secondStory);
 
+// ini adalah contoh penggunaan data tipe simbol sekaligus objek
+const Z00mb13 = Symbol("experiment_number")
+let zombieExpData = {
+    zombieIdentity: "Nemesis",
+    zombieNumber: "0397",
+    [EXP_NUM]: 77762
+};
+console.log("Name: ", zombieExpData.zombieIdentity);
+console.log("Exp Number: ", zombieExpData[EXP_NUM]);
 
 
 
