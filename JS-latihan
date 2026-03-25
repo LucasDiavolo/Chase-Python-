@@ -60,14 +60,37 @@ const secondStory = "Once upon a time, there was a(n) " + adjective + " " + noun
 console.log('Second story: ' + secondStory);
 
 // ini adalah contoh penggunaan data tipe simbol sekaligus objek
-const Z00mb13 = Symbol("experiment_number")
+const ZSymbol = Symbol("experiment_number")
 let zombieExpData = {
     zombieIdentity: "Nemesis",
     zombieNumber: "0397",
     [EXP_NUM]: 77762
 };
-console.log("Name: ", zombieExpData.zombieIdentity);
-console.log("Exp Number: ", zombieExpData[EXP_NUM]);
+
+// contoh penggunaan indexOf
+let strA = "I am learning JavaScript";
+let strB = strA.indexOf("JavaScript");
+console.log(strB);
+
+//contoh penggunaan length, bratch notation, template literal, dan beberapa metode
+const identitasNama = "Grace Ashcroft.";
+console.log(identitasNama[0]);
+console.log(identitasNama.length);
+console.log(identitasNama.length - 1);
+
+const zombieClass = `Tyrant Nemesis`;
+console.log(zombieClass[1]);
+
+//metode indexOf()
+const tyrantName = "Veronica Virus";
+console.log(tyrantName.indexOf("Virus"));
+
+//metode typeof ()
+let subjectName = "Poppy Playtime";
+console.log(typeof subjectName);
+
+
+
 
 
 
