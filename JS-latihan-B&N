@@ -1,0 +1,32 @@
+'use-strict';
+
+//contoh bentuk bentuk data type = number 
+const wholeNumber = 50;
+console.log(typeof wholeNumber);
+const decimalNumber = 4.5;
+console.log(typeof decimalNumber);
+const negativeNumber = -7;
+console.log(typeof negativeNumber);
+const positiveInteger = 100;
+console.log(typeof positiveInteger);
+const negativeInteger = -25;
+console.log(typeof negativeInteger);
+const zero = 0;
+console.log(typeof zero);
+const floatingPointNumber = 4.5;
+console.log(typeof floatingPointNumber);
+const anotherFloat = 89.56;
+console.log(typeof anotherFloat);
+const oneMoreFloat = 16.462;
+console.log(typeof oneMoreFloat);
+
+//contoh dari data type number = infinity & zero
+const limitless = 1 / 0;
+console.log(limitless);
+
+const zeroless = 0 / 1;
+console.log(zeroless);
+
+//contoh dari data type number = NaN (Not a Numbers)
+const stringXnumber =  "Hewllo, World" / 1;
+console.log(stringXnumber);
