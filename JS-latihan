@@ -89,8 +89,25 @@ console.log(tyrantName.indexOf("Virus"));
 let subjectName = "Poppy Playtime";
 console.log(typeof subjectName);
 
+//contoh penggunaan charCode()
+console.log(String.fromCharCode(66));
 
+//contoh penggunaan include()
+let message = "JavaScript is great!";
+let answer = message.includes("script");
+console.log(answer);
 
+//contoh penggunaan slice()
+let text = "JavaScript is awesome!";
+let result = text.slice(0, 9);
+
+console.log(result);
+
+//contoh penggunaan replace()
+let phrase = "freeCodeCamp is awesome!";
+let updatedPhrase = phrase.replace("freecodecamp", "fCC");
+
+console.log(updatedPhrase);
 
 
 
