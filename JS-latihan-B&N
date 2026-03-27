@@ -30,3 +30,24 @@ console.log(zeroless);
 //contoh dari data type number = NaN (Not a Numbers)
 const stringXnumber =  "Hewllo, World" / 1;
 console.log(stringXnumber);
+
+//contoh dari operasi remainder atau operasi modulo
+const remainder = 5 % 3;
+console.log(remainder);
+
+/*contoh dari type coercion --> sebuah kejadiaan di mana sistem akan mengkonversi 
+salah satu data menjadi tipe lain*/
+const resultOp = `43` + 7;
+console.log(resultOp);
+const operation = `Hewwo` - 3;
+console.log(operation);
+
+console.log(6 != 5);
+
+//contoh Booleans berserta dengan statement If
+const zCage = true;
+if (zCage) {
+    console.log("Warning: Zombie Outbreak, Please Evacute Immedieately!")
+} else {
+    console.log("nothing");
+}
