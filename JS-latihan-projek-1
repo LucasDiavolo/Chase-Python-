@@ -1,0 +1,13 @@
+let username = "admin1";
+let password = "Pass12345";
+
+const usernameCorrect = "admin";
+const passwordCorrect = "Pass232338";
+
+let attempt = 0;
+const maxAttempt = 4;
+let isLocked = false;
+
+
+
+
