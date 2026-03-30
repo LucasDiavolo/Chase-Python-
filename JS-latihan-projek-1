@@ -4,9 +4,26 @@ let password = "Pass12345";
 const usernameCorrect = "admin";
 const passwordCorrect = "Pass232338";
 
-let attempt = 0;
-const maxAttempt = 4;
-let isLocked = false;
+let attemptNum = 0;
+let maxAttempt = 4;
+console.log(`Your attempt is ${maxAttempt} left.`)
+
+let isLocked;
+if (maxAttempt === 0 && attempt === 4) {
+    isLocked = true
+    console.log("Your account have been locked, try again later")
+}
+
+let isAuthenticated;
+if (username === usernameCorrect && password === passwordCorrect) {
+    isAuthenticated = true
+    console.log("Welcome")
+} else if (username !== usernameCorrect && password !== passwordCorrect) {
+    isAuthenticated = false
+    console.log("Incorrect username and password")
+}
+
+//sisanya tanya ulang chatGPT
 
 
 
