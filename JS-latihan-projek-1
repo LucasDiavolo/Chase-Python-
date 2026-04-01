@@ -1,29 +1,65 @@
-let username = "admin1";
-let password = "Pass12345";
+let inputUsername = "admin1";
+let inputPassword = "Pass12345";
 
 const usernameCorrect = "admin";
 const passwordCorrect = "Pass232338";
 
 let attemptNum = 0;
 let maxAttempt = 4;
-console.log(`Your attempt is ${maxAttempt} left.`)
+let isLocked = false;
 
-let isLocked;
-if (maxAttempt === 0 && attempt === 4) {
-    isLocked = true
-    console.log("Your account have been locked, try again later")
+if (isLocked) {
+    console.log("Your account has been locked. Please try again later.")
+} else {
+    console.log("Please input your username and password.")
+};
+
+let isUserCorrect
+if (inputUsername === usernameCorrect) {
+    isUserCorrect = true
+} else if (inputUsername !== usernameCorrect) {
+    isUserCorrect = false
+    console.log(++attemptNum)
+    console.log(--maxAttempt)
+    console.log(`Invalid username. You have ${maxAttempt} attempt left.`)
+};
+
+let isPasswordCorrect
+if ((isUserCorrect = true) && (inputPassword === passwordCorrect)) {
+    isPasswordCorrect = true
+    console.log("You have successfully login. Welcome.")
+} else if ((isUserCorrect = false) || (inputPassword === passwordCorrect)) {
+    isPasswordCorrect = false
+    console.log(++attemptNum)
+    console.log(--maxAttempt)
+    console.log(`Invalid username. You have ${maxAttempt} attempt left.`)
+} else if ((isUserCorrect = true) && (inputPassword !== passwordCorrect)) {
+    isPasswordCorrect = false
+    console.log(++attemptNum)
+    console.log(--maxAttempt)
+    console.log(`Invalid username and password. You have ${maxAttempt} attempt left.`)
 }
 
-let isAuthenticated;
-if (username === usernameCorrect && password === passwordCorrect) {
-    isAuthenticated = true
-    console.log("Welcome")
-} else if (username !== usernameCorrect && password !== passwordCorrect) {
-    isAuthenticated = false
-    console.log("Incorrect username and password")
+let isUserAuthenticated
+if ((isUserCorrect = true) && (isPasswordCorrect = true)) {
+    isUserAuthenticated = true
+    maxAttempt = 0
+    console.log("You are successfully login. Welcome.")
+} else {
+    isUserAuthenticated = false
+};
+
+if (attemptNum >= maxAttempt) {
+    isLocked = true 
+    console.log("Account locked due to too many attempts")
 }
 
-//sisanya tanya ulang chatGPT
+
+
+
+
+
+
 
 
 
