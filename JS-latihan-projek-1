@@ -12,42 +12,32 @@ if (isLocked) {
     console.log("Your account has been locked. Please try again later.")
 } else {
     console.log("Please input your username and password.")
-};
-
-let isUserCorrect
-if (inputUsername === usernameCorrect) {
-    isUserCorrect = true
-} else {
-    isUserCorrect = false
-    attemptNum++;
-    console.log(`Invalid username.`)
-};
-
-let isPasswordCorrect
-if (isUserCorrect === true) {
-    if (inputPassword === passwordCorrect) {
-        isPasswordCorrect = true
-        console.log("You have successfully login. Welcome.")
-        attemptNum = 0
+    
+    let isUserCorrect
+    if (inputUsername === usernameCorrect) {
+        isUserCorrect = true
     } else {
-        isPasswordCorrect = false
-        attemptNum++
-        console.log(`invalid password. You have (${maxAttempt} - ${attemptNum}) attempts left.`)
+        isUserCorrect = false
+         attemptNum++;
+        console.log(`Invalid username. You have ${maxAttempt - attemptNum} attempts left.`)
     }
+
+    let isPasswordCorrect 
+    if (isUserCorrect === true) {
+        if (inputPassword === passwordCorrect) {
+            isPasswordCorrect = true
+            console.log("You have successfully logged in. Welcome.")
+            attemptNum = 0
+        } else {
+            isPasswordCorrect = false
+            attemptNum++
+            console.log(`invalid password. You have ${maxAttempt - attemptNum} attempts left.`)
+        }
+    }
+
+    if (attemptNum >= maxAttempt) {
+        isLocked = true 
+        console.log("Account locked due to too many attempts")
+    }
+
 }
-
-if (attemptNum >= maxAttempt) {
-    isLocked = true 
-    console.log("Account locked due to too many attempts")
-}
-
-
-
-
-
-
-
-
-
-
-
