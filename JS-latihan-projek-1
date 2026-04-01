@@ -17,37 +17,24 @@ if (isLocked) {
 let isUserCorrect
 if (inputUsername === usernameCorrect) {
     isUserCorrect = true
-} else if (inputUsername !== usernameCorrect) {
+} else {
     isUserCorrect = false
-    console.log(++attemptNum)
-    console.log(--maxAttempt)
-    console.log(`Invalid username. You have ${maxAttempt} attempt left.`)
+    attemptNum++;
+    console.log(`Invalid username.`)
 };
 
 let isPasswordCorrect
-if ((isUserCorrect = true) && (inputPassword === passwordCorrect)) {
-    isPasswordCorrect = true
-    console.log("You have successfully login. Welcome.")
-} else if ((isUserCorrect = false) || (inputPassword === passwordCorrect)) {
-    isPasswordCorrect = false
-    console.log(++attemptNum)
-    console.log(--maxAttempt)
-    console.log(`Invalid username. You have ${maxAttempt} attempt left.`)
-} else if ((isUserCorrect = true) && (inputPassword !== passwordCorrect)) {
-    isPasswordCorrect = false
-    console.log(++attemptNum)
-    console.log(--maxAttempt)
-    console.log(`Invalid username and password. You have ${maxAttempt} attempt left.`)
+if (isUserCorrect === true) {
+    if (inputPassword === passwordCorrect) {
+        isPasswordCorrect = true
+        console.log("You have successfully login. Welcome.")
+        attemptNum = 0
+    } else {
+        isPasswordCorrect = false
+        attemptNum++
+        console.log(`invalid password. You have (${maxAttempt} - ${attemptNum}) attempts left.`)
+    }
 }
-
-let isUserAuthenticated
-if ((isUserCorrect = true) && (isPasswordCorrect = true)) {
-    isUserAuthenticated = true
-    maxAttempt = 0
-    console.log("You are successfully login. Welcome.")
-} else {
-    isUserAuthenticated = false
-};
 
 if (attemptNum >= maxAttempt) {
     isLocked = true 
