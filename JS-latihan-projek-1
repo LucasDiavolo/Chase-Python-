@@ -1,7 +1,5 @@
 let inputUsername = "admin1";
 let inputPassword = "Pass12345";
-let passwordHasNum = inputPassword.indexOf(`${"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}`)
-console.log(passwordHasNum);
 
 const usernameCorrect = "admin";
 const passwordCorrect = "Pass232338";
@@ -16,13 +14,31 @@ if (isLocked) {
     console.log("Please input your username and password.")
     
     let passwordLength = inputPassword.length;
-    let passwordHasNum = +inputPassword
+
+    let passwordHasNum = false;
+
+    if (
+        inputPassword.includes("0") ||
+        inputPassword.includes("1") ||
+        inputPassword.includes("2") ||
+        inputPassword.includes("3") ||
+        inputPassword.includes("4") ||
+        inputPassword.includes("5") ||
+        inputPassword.includes("6") ||
+        inputPassword.includes("7") ||
+        inputPassword.includes("8") ||
+        inputPassword.includes("9") 
+    ) {
+        passwordHasNum = true;
+    }
+
     let passwordVerif;
     if (passwordLength >= 8 && passwordHasNum === true) {
-    passwordVerif = true
+        passwordVerif = true
+        console.log("Password strength acceptable")
     } else {
-    passwordVerif = false
-    console.log("Weak password detected")
+        passwordVerif = false
+        console.log("Weak password detected")
     };
 
     let isUserCorrect
