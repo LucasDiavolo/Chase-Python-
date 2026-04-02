@@ -1,5 +1,5 @@
 let inputUsername = "admin1";
-let inputPassword = "Pass12345";
+let inputPassword = "Pass2312";
 
 const usernameCorrect = "admin";
 const passwordCorrect = "Pass232338";
@@ -33,12 +33,12 @@ if (isLocked) {
     }
 
     let passwordVerif;
-    if (passwordLength >= 8 && passwordHasNum === true) {
+    if (passwordLength >= 8 && passwordHasNum) {
         passwordVerif = true
         console.log("Password strength acceptable")
     } else {
         passwordVerif = false
-        console.log("Weak password detected")
+        console.log("Weak password detected. Missing numbers.")
     };
 
     let isUserCorrect
@@ -58,8 +58,8 @@ if (isLocked) {
             attemptNum = 0
         } else {
             isPasswordCorrect = false
-            attemptNum++
-            console.log(`invalid password. You have ${maxAttempt - attemptNum} attempts left.`)
+            attemptNum++;
+            console.log(`Invalid password. You have ${maxAttempt - attemptNum} attempts left.`)
         }
     }
 
