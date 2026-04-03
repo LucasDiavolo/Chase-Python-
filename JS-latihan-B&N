@@ -169,4 +169,25 @@ console.log(undefined == '');
 
 console.log(null = 0);
 
+let zNum = 1000;
+
+let destroy; 
+if (zNum >= 1000) {
+  destroy = true 
+  console.log("Deadly Missiles has been launched")
+} else {
+  destroy = false
+  console.log("Sending Reinforcements.")
+
+  switch (zNum) {
+    case 10:
+      console.log("Sending Police to location.")
+      break;
+    case 100:
+      console.log("Sending Military Reinforcement to location.")
+      break;
+    default:
+      console.log("Unknown threat level.")
+  }
+}
 
