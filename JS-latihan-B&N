@@ -52,8 +52,8 @@ if (zCage) {
     console.log("nothing");
 }
 
-let a = 5;
-console.log(a >> 3);
+let a = 10;
+console.log(10 / 0);
 
 //contoh ternary operator
 const lostEffect = 50;
@@ -147,5 +147,26 @@ if ((inputNum / inputNum2) === (inputNum / inputNum2)) {
 };
 
 console.log(Number.isNaN(numNanAut));
+
+let num1 = 12.345;
+let num2 = 67.891;
+
+console.log((num1 + num2).toFixed(2));
+
+//contoh comparasion undefined dan null
+console.log(undefined > 0);  
+console.log(undefined < 0);  
+console.log(undefined == 0); 
+
+console.log(null > 0);  
+console.log(null == 0); 
+console.log(null >= 0); 
+
+console.log(null == 0);  
+console.log(null == ''); 
+console.log(undefined == 0); 
+console.log(undefined == ''); 
+
+console.log(null = 0);
 
 
