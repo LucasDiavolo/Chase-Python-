@@ -169,7 +169,7 @@ console.log(undefined == '');
 
 console.log(null = 0);
 
-let zNum = 1000;
+let zCage = 1000;
 
 let destroy; 
 if (zNum >= 1000) {
@@ -191,3 +191,16 @@ if (zNum >= 1000) {
   }
 }
 
+let zCage = "CAGED"
+
+switch (zCage) {
+  case "RELEASE":
+  console.log("Zombies has been release, All Staff immedieately evacuate.")
+  break; 
+  case "SHUTDOWN"
+  console.log("Zombies has been neutralized. All cage has been shutdown.")
+  break:
+  default:
+  case "CAGED":
+  console.log("Zombies has been imprisoned.")
+}
