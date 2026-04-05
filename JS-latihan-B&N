@@ -181,8 +181,10 @@ if (zNum >= 1000) {
 
   switch (zNum) {
     case 10:
-      console.log("Sending Police to location.")
+      console.log("Sending Polices to location.")
       break;
+    case 50:
+      console.log("Sending SWAT to the location")
     case 100:
       console.log("Sending Military Reinforcement to location.")
       break;
@@ -204,3 +206,4 @@ switch (zCage) {
   case "CAGED":
   console.log("Zombies has been imprisoned.")
 }
+
