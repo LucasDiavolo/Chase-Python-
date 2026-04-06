@@ -191,3 +191,11 @@ if (zNum >= 1000) {
   }
 }
 
+console.log(5 === 2 + 3 || 4 == 2);
+
+const aTUY = 2;
+if (1 == "1") {
+  let bTUY = 3;
+  console.log(aTUY + bTUY);
+}
+console.log(bTUY);
