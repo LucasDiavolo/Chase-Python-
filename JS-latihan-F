@@ -1,0 +1,7 @@
+function login(username) {
+    console.log(`Hello, ${username} Please enter your password`);
+}
+
+const multiply = (a, b) => a * b;
+console.log(multiply(2, 3)); 
+
