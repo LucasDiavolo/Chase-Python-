@@ -13,11 +13,10 @@ if (isLocked) {
 } else {
     console.log("Please input your username and password.")
     
-    let passwordLength = inputPassword.length;
-
-    let passwordHasNum = false;
-
-    if (
+    function passwordCheck() {
+       let passwordLength = inputPassword.length;
+       let passwordHasNum = false;
+       if (
         inputPassword.includes("0") ||
         inputPassword.includes("1") ||
         inputPassword.includes("2") ||
@@ -28,9 +27,11 @@ if (isLocked) {
         inputPassword.includes("7") ||
         inputPassword.includes("8") ||
         inputPassword.includes("9") 
-    ) {
+       ) {
         passwordHasNum = true;
+       }
     }
+    passwordCheck();
 
     let passwordVerif;
     if (passwordLength >= 8 && passwordHasNum) {
@@ -62,10 +63,13 @@ if (isLocked) {
             console.log(`Invalid password. You have ${maxAttempt - attemptNum} attempts left.`)
         }
     }
-
-    if (attemptNum >= maxAttempt) {
-        isLocked = true 
-        console.log("Account locked due to too many attempts")
+    
+    function lockedCheck() {
+      if (attemptNum >= maxAttempt) {
+         isLocked = true 
+         console.log("Account locked due to too many attempts")
+      }
     }
+    lockedCheck();
 }
 
