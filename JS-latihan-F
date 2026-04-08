@@ -49,3 +49,10 @@ function calculateSquareRoot(num) {
 
 console.log(calculateSquareRoot(25));
 console.log(calculateSquareRoot(100));
+
+function calculateRound(dec) {
+  return Math.flow(dec);
+}
+
+console.log(calculateRound(3.4));
+console.log(calculateRound(2.9));
