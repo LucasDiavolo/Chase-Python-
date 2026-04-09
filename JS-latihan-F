@@ -49,3 +49,11 @@ function calculateSquareRoot(num) {
 
 console.log(calculateSquareRoot(25));
 console.log(calculateSquareRoot(100));
+
+let email = "aknssnksdad@gmail.com"
+
+function maskEmail(email) {
+  return email.replace(email.slice(1, email.indexOf('@') - 1), "*".repeat(email.length));
+}
+
+console.log(maskEmail(email));
