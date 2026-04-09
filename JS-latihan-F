@@ -51,7 +51,7 @@ console.log(calculateSquareRoot(25));
 console.log(calculateSquareRoot(100));
 
 function calculateRound(dec) {
-  return Math.flow(dec);
+  return Math.round(dec);
 }
 
 console.log(calculateRound(3.4));
