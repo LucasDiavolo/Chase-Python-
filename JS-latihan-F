@@ -50,10 +50,20 @@ function calculateSquareRoot(num) {
 console.log(calculateSquareRoot(25));
 console.log(calculateSquareRoot(100));
 
-let email = "aknssnksdad@gmail.com"
+function calculateRound(dec) {
+  return Math.flow(dec);
+}
+
+console.log(calculateRound(3.4));
+console.log(calculateRound(2.9));
+
+//contoh function maskEmail menggunakan metode replace, slice, repeat, length
+let email = "apple.pie@example.com"
 
 function maskEmail(email) {
-  return email.replace(email.slice(1, email.indexOf('@') - 1), "*".repeat(email.length));
+  let masked = email.slice(1, email.indexOf('@') - 1)
+  let masked2 = email.replace(masked, "*".repeat(masked.length))
+  return masked2
 }
 
 console.log(maskEmail(email));
