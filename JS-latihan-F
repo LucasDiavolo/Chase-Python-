@@ -67,3 +67,11 @@ function maskEmail(email) {
 }
 
 console.log(maskEmail(email));
+
+//contoh celcius to fahrenheit converter
+function convertCtoF(cel) {
+  return cel * (9/5) + 32;
+}
+
+console.log(convertCtoF(0));
+console.log(convertCtoF(-30));
