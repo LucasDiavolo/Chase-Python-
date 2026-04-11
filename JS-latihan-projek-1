@@ -1,6 +1,3 @@
-let inputUsername = "admin1";
-let inputPassword = "Pass2312";
-
 const usernameCorrect = "admin";
 const passwordCorrect = "Pass232338";
 
@@ -8,15 +5,19 @@ let attemptNum = 0;
 let maxAttempt = 4;
 let isLocked = false;
 
+let inputUsername = "admin1";
+let inputPassword = "Pass23333"
+
+inputUsername = "admin2"
+
 if (isLocked) {
     console.log("Your account has been locked. Please try again later.")
 } else {
     console.log("Please input your username and password.")
     
-    function passwordCheck() {
-       let passwordLength = inputPassword.length;
-       let passwordHasNum = false;
-       if (
+    let passwordLength = inputPassword.length;
+    let passwordHasNum = false;
+    if (
         inputPassword.includes("0") ||
         inputPassword.includes("1") ||
         inputPassword.includes("2") ||
@@ -27,11 +28,9 @@ if (isLocked) {
         inputPassword.includes("7") ||
         inputPassword.includes("8") ||
         inputPassword.includes("9") 
-       ) {
-        passwordHasNum = true;
-       }
+    ) {
+      passwordHasNum = true;
     }
-    passwordCheck();
 
     let passwordVerif;
     if (passwordLength >= 8 && passwordHasNum) {
