@@ -171,21 +171,30 @@ cardCounter("A")
 cardCounter(10)
 console.log(cardCounter("K"));
 
-function isLeapYear(year) {
-  const yearDivisible1 = year % 4;
-  const yearDivisible2 = year % 100;
-  const yearDivisible3 = year % 400;
+//contoh pembuatan leapYear
+let year = 1900;
 
-  if (yearDivisible1 === 0 && yearDivisible2 === 0 && yearDivisible3 === 0) {
-    console.log(`${year} is a leap year.`)
-  } else if (yearDivisible1 === 0 && yearDivisible2 === 0) {
-    console.log(`${year} is not a leap year.`)
-  } else if (yearDivisible1 === 0) {
-    console.log(`${year} is a leap year.`)
-  };
+function isLeapYear(year) {
+  if ((year % 4) === 0 && (year % 100) === 0 && (year % 400) === 0) {
+    return `${year} is a leap year.`
+  } else if ((year % 4) === 0 && (year % 100) === 0) {
+    return `${year} is not a leap year.`
+  } else if ((year % 4) === 0) {
+    return `${year} is a leap year.`
+  }
 }
 
-let year = 2020;
+let result = isLeapYear(year);
+console.log(result)
 
-const result = isLeapYear(year);
-console.log(result);
+//contoh pembuatan truncate string
+function truncateString(str, num) {
+  if ((str.length) > num) {
+    return str.slice(0, num) + '...'
+  } else if ((str.length) === num || (str.length) < num) {
+    return str
+  }
+}
+
+console.log(truncateString("abcde", 4));
+console.log("A-tisket a-tasket A green and yellow basket".length);
