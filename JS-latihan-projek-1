@@ -63,12 +63,9 @@ if (isLocked) {
         }
     }
     
-    function lockedCheck() {
       if (attemptNum >= maxAttempt) {
          isLocked = true 
          console.log("Account locked due to too many attempts")
       }
-    }
-    lockedCheck();
 }
 
