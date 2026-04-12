@@ -198,3 +198,40 @@ function truncateString(str, num) {
 
 console.log(truncateString("abcde", 4));
 console.log("A-tisket a-tasket A green and yellow basket".length);
+
+function confirmEnding(str1, str2) {
+  if (str1.includes(str2, str1.indexOf(str2, str1.length - 1))) {
+    return true
+  } else {
+    return false
+  }
+}
+
+console.log(confirmEnding("Congratulation", "on"))
+
+let strTest1 = "Congratulation"
+console.log(strTest1.indexOf("on", 12));
+
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+// projek simpel 1
+function secretGuess(secretNum) {
+  if (secretNum === 7) {
+    return `Correct!`
+  } else if (secretNum > 7) {
+    return `Too High!`
+  } else if (secretNum < 7) {
+    return `Too Low!`
+  }
+}
+
+rl.question("Guess the number: ", function(answer) {
+  let guess = Number(answer);
+  checkGuess(guess);
+  rl.close();
+});
