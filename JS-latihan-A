@@ -43,16 +43,20 @@ console.log(getShoppingListMsg(shoppingList));
 //projek kecil selasa 15-04-2026
 let registeredUsername = ["Louis", "Mia", "Yakumo", "Io", "Lucas"]
 function checkAccess(username) {
-  if (registeredUsername.includes(username) === true) {
+  if (registeredUsername.includes(username)) {
     return `✅ Access Granted: Selamat datang, ${username}!`
   } else {
     return `❌ Access Denied: User ${username} tidak dikenali!`
   }
 };
 
+console.log(checkAccess("Lucas"));
+console.log(checkAccess("lucas"));
+console.log(checkAccess("LUCAS"));
+
 function addUser(newUsername) {
   registeredUsername.push(newUsername)
-  return `User berhasil ditambahkan`
+  return `${newUsername} berhasil ditambahkan`
 };
 
 console.log(addUser("Murasame"));
