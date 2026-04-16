@@ -235,3 +235,4 @@ rl.question("Guess the number: ", function(answer) {
   checkGuess(guess);
   rl.close();
 });
+
