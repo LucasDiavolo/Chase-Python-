@@ -121,3 +121,11 @@ function showLunchMenu(arr) {
 }
 
 console.log(showLunchMenu([]))
+
+//contoh penggunaan splice() method dan indexOf
+let sports = ["Baseball", "Basketball", "Soccer", "Tennis", "Badminton", "Paddle"]
+let remover = sports.indexOf("Football")
+if (remover !== -1) {
+  sports.splice(remover, 1);
+}
+console.log(sports);
