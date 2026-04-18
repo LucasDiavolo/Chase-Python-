@@ -1,0 +1,58 @@
+const detectedThreats = ["Phising", "Ransomware", "DDoS", "SQL Injection", "Brute Force", "Keylogger"]
+
+let criticalCount = 0
+let highCount = 0
+let mediumCount = 0
+
+function classifyThreat(threatName) {
+    switch (threatName) {
+        case "Ransomware":
+        case "DDoS":
+            category = "CRITICAL"
+            break;
+        case "SQL Injection":
+        case "Brute Force": 
+            category = "HIGH"
+            break;
+        case "Phising":
+        case "Keylogger":
+            category = "MEDIUM"
+            break;
+        default:
+            category = "LOW"
+            return category
+    }
+}
+
+function getRecommendation(category) {
+    if (category === "CRITICAL") {
+        return "🚨 Isolasi sistem sekarang dan hubungi incident response team!"
+    } else if (category === "HIGH") {
+        return "⚠️ Blokir IP terkait dan lakukan forensik log segera!"
+    } else if (category === "MEDIUM") {
+        return "🔔 Catat insiden dan tingkatkan monitoring selama 24 jam!"
+    } else {
+        return "📝 Masukkan ke watchlist dan lakukan observasi rutin."
+    }
+}
+
+function analyzeThreat(threatName) {
+    let category = classifyThreat(threatName)
+    let recommendation = getRecommendation(category)
+    if (category === "CRITICAL") {
+        criticalCount += 1;
+    } else if (category === "HIGH") {
+        highCount += 1;
+    } else if (category === "MEDIUM") {
+        mediumCount += 1;
+    } 
+    return `🔍 Threat Detected  : ${threatName} \n📊 Classification   : ${category} \n💡 Recommendation   : ${recommendation}`
+}
+
+detectedThreats.forEach(analyzeThreat(threatName))
+
+console.log(`========= THREAT SUMMARY REPORT =========\n🔴 Critical Threats  : ${criticalCount}\n🟠 High Threats      : ${highCount}\n🟡 Medium Threats    : ${mediumCount}\n==========================================`)
+
+if (criticalCount > 0 && highCount > 0) {
+    console.log("⛔ ALERT: Sistem dalam kondisi darurat! Eskalasi ke manajemen!")
+}
