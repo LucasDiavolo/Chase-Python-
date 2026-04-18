@@ -1,4 +1,4 @@
-const detectedThreats = ["Phising", "Ransomware", "DDoS", "SQL Injection", "Brute Force", "Keylogger"]
+const detectedThreats = ["Phishing", "Ransomware", "DDoS", "SQL Injection", "Brute Force", "Keylogger"]
 
 let criticalCount = 0
 let highCount = 0
@@ -14,14 +14,14 @@ function classifyThreat(threatName) {
         case "Brute Force": 
             category = "HIGH"
             break;
-        case "Phising":
+        case "Phishing":
         case "Keylogger":
             category = "MEDIUM"
             break;
         default:
             category = "LOW"
-            return category
     }
+    return category
 }
 
 function getRecommendation(category) {
@@ -46,10 +46,10 @@ function analyzeThreat(threatName) {
     } else if (category === "MEDIUM") {
         mediumCount += 1;
     } 
-    return `🔍 Threat Detected  : ${threatName} \n📊 Classification   : ${category} \n💡 Recommendation   : ${recommendation}`
+    console.log(`🔍 Threat Detected  : ${threatName} \n📊 Classification   : ${category} \n💡 Recommendation   : ${recommendation}`)
 }
 
-detectedThreats.forEach(analyzeThreat(threatName))
+detectedThreats.forEach(analyzeThreat)
 
 console.log(`========= THREAT SUMMARY REPORT =========\n🔴 Critical Threats  : ${criticalCount}\n🟠 High Threats      : ${highCount}\n🟡 Medium Threats    : ${mediumCount}\n==========================================`)
 
