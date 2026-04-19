@@ -104,13 +104,24 @@ function validateManifest(manifest) {
     let cargo = {...manifest}
     if (
       typeof cargo.containerId === "number" && cargo.containerId > 0 &&
-      typeof cargo.destination === "string" && cargo.destination !== undefined &&
+      typeof cargo.destination === "string" && cargo.destination !== undefined && 
+      cargo.destination !== "Missing" || "Invalid" &&
       typeof cargo.weight === "number" && cargo.weight > 0 &&
       cargo.unit === "lb" || cargo.unit === "kg" &&
       typeof cargo.hazmat === "boolean"
     ) {
       return {}
+    } else {
+      return "false"
     }
+}
+console.log(validateManifest({
+  containerId: 1,
+  destination: "",
+  weight: 831,
+  unit: "lb",
+  hazmat: false
+}))
 
 
 function processManifest(manifest) {
