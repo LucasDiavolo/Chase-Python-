@@ -81,16 +81,8 @@ function normalizeUnits(manifest) {
         cargo.weight = cargo.weight * 0.45
         cargo.unit = "kg"
     } 
-    return cargo.weight
+    return cargo
 };
-
-console.log(normalizeUnits({
-  containerId: 1,
-  destination: "Monterey, California, USA",
-  weight: 831,
-  unit: "lb",
-  hazmat: false
-}));
 
 function validateManifest(manifest) {
     let cargo = {};
@@ -108,38 +100,45 @@ function validateManifest(manifest) {
 
     if (manifest.weight === undefined) {
       cargo.weight = "Missing";
-    } else if (typeof manifest.weight !== "number" || manifest.weight < 0) {
+    } else if (typeof manifest.weight !== "number" || manifest.weight <= 0 || Number.isNaN(manifest.weight)) {
       cargo.weight = "Invalid";
     }
 
     if (manifest.unit === undefined) {
       cargo.unit = "Missing";
-    } else if (cargo.unit !== "lb" || cargo.unit !== "kg") {
+    } else if (manifest.unit !== "lb" && manifest.unit !== "kg") {
       cargo.unit = "Invalid";
     }
 
     if (manifest.hazmat === undefined) {
       cargo.hazmat = "Missing";
-    } else if (typeof cargo.hazmat === "boolean") {
+    } else if (typeof manifest.hazmat !== "boolean") {
       cargo.hazmat = "Invalid";
     }
   return cargo;
-}
-console.log(validateManifest({
-  containerId: 1,
-  destination: "",
-  weight: 831,
-  unit: "lb",
-  hazmat: false
-}))
-
+};
 
 function processManifest(manifest) {
-    if (manifest !== undefined)  {
-        console.log(`Validation success: ${containerId}`)
-        normalizeUnits(manifest)
-        console.log(`Total weight: ${weight} kg`)
-    } else {
-        console.log(`Validation error: ${containerId}`)
-    }
-}
+  let cargo = validateManifest(manifest)
+  if (Object.keys(cargo).length === 0) {
+    console.log(`Validation success: ${manifest.containerId}`)
+    let totalWeight = normalizeUnits(manifest);
+    console.log(`Total weight: ${totalWeight.weight} kg`);
+  } else {
+    console.log(`Validation error: ${manifest.containerId}`)
+    console.log(cargo);
+  }
+};
+
+console.log(normalizeUnits({ containerId: 68, destination: "Salinas", weight: 101, unit: "lb", hazmat: true }))
+console.log(validateManifest({ containerId: 1, destination: "Santa Cruz", weight: 304, unit: "kg", hazmat: false }))
+console.log(validateManifest({ containerId: null, destination: "Santa Cruz", weight: 304, unit: "kg", hazmat: false }))
+console.log(validateManifest({ containerId: 0, destination: 405, weight: -84, unit: "pounds", hazmat: "no" }))
+console.log(validateManifest({ containerId: -2 }))
+console.log(validateManifest({ containerId: 3.50 }))
+console.log(validateManifest({ destination: "  " }))
+console.log(validateManifest({ weight: NaN }))
+processManifest({ containerId: 55, destination: "Carmel", weight: 400, unit: "lb", hazmat: false })
+processManifest({ containerId: -88, destination: "Soledad", weight: NaN })
+processManifest({ destination: "Watsonville", hazmat: true })
+
