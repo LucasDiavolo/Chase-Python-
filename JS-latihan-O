@@ -75,14 +75,6 @@ const getProperty = (animal, propertyName) => {
 console.log(getProperty(tiger, "species"));
 console.log(getProperty(elephant, "age"));
 
-let cargoManifest = {
-  containerId: 1,
-  destination: "Monterey, California, USA",
-  weight: 831,
-  unit: "lb",
-  hazmat: false
-}
-
 function normalizeUnits(manifest) {
     let cargo = {...manifest}
     if (cargo.unit !== "kg") {
@@ -101,19 +93,37 @@ console.log(normalizeUnits({
 }));
 
 function validateManifest(manifest) {
-    let cargo = {...manifest}
-    if (
-      typeof cargo.containerId === "number" && cargo.containerId > 0 &&
-      typeof cargo.destination === "string" && cargo.destination !== undefined && 
-      cargo.destination !== "Missing" || "Invalid" &&
-      typeof cargo.weight === "number" && cargo.weight > 0 &&
-      cargo.unit === "lb" || cargo.unit === "kg" &&
-      typeof cargo.hazmat === "boolean"
-    ) {
-      return {}
-    } else {
-      return "false"
+    let cargo = {};
+    if (manifest.containerId === undefined) {
+      cargo.containerId = "Missing";
+    } else if (typeof manifest.containerId !== "number" || manifest.containerId < 0) {
+      cargo.containerId = "Invalid";
     }
+
+    if (manifest.destination === undefined) {
+      cargo.destination = "Missing";
+    } else if (typeof manifest.destination !== "string" || manifest.destination.trim() === "") {
+      cargo.destination = "Invalid";
+    }
+
+    if (manifest.weight === undefined) {
+      cargo.weight = "Missing";
+    } else if (typeof manifest.weight !== "number" || manifest.weight < 0) {
+      cargo.weight = "Invalid";
+    }
+
+    if (manifest.unit === undefined) {
+      cargo.unit = "Missing";
+    } else if (cargo.unit !== "lb" || cargo.unit !== "kg") {
+      cargo.unit = "Invalid";
+    }
+
+    if (manifest.hazmat === undefined) {
+      cargo.hazmat = "Missing";
+    } else if (typeof cargo.hazmat === "boolean") {
+      cargo.hazmat = "Invalid";
+    }
+  return cargo;
 }
 console.log(validateManifest({
   containerId: 1,
