@@ -142,3 +142,7 @@ processManifest({ containerId: 55, destination: "Carmel", weight: 400, unit: "lb
 processManifest({ containerId: -88, destination: "Soledad", weight: NaN })
 processManifest({ destination: "Watsonville", hazmat: true })
 
+let username = {
+  Admin: LucasDevil777
+  User: [Louis, Yakumo, Mia, Murasame, Jack, Eva]
+}
