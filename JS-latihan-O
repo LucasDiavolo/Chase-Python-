@@ -143,6 +143,8 @@ processManifest({ containerId: -88, destination: "Soledad", weight: NaN })
 processManifest({ destination: "Watsonville", hazmat: true })
 
 let username = {
-  Admin: LucasDevil777
-  User: [Louis, Yakumo, Mia, Murasame, Jack, Eva]
+  "admin": "LucasDevil777",
+  "ipAddress": 1926701,
+  "user": ["Louis", "Murasame", "Jack"],
+  "password": ["sdFRWW", "RFEWss"]
 }
