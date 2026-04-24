@@ -67,7 +67,7 @@ function createAlert(ipAddress, threatType, severity) {
     return `${alert}`
 }
 
-function analyzeThreate(ipAddress, threatType) {
+function analyzeThreat(ipAddress, threatType) {
     if (threatDatabase[threatType].include(threatType)) {
         threatDatabase[threatType].push(threat)
     } else {
@@ -120,4 +120,31 @@ Pilih menu (1-4):
         `)
 }
 
+function handleMenu(choice) {
+    switch (true) {
+        case 1:
+            rl.question("Masukkan IP Address", ipAddress.rl.question("Masukkan tipe ancaman", threatType.analyzeThreat(ipAddress, threatType)))
+            showMenu()
+            break;
+        case 2: 
+            rl.question("Masukkan IP Address", ipAddress)
+            blockIP(ipAddress)
+            showMenu()
+            break;
+        case 3:
+            showStatus()
+            showMenu()
+            break;
+        case 4:
+            console.log("👋 Sistem NIDS dimatikan. Stay secure!")
+            rl.close()
+            break;
+        default:
+            console.log("❌ Pilihan tidak valid!")
+            showMenu()
+ }
+}
 rl.question(choice, handleMenu(choice)) 
+
+displayBanner()
+showMenu()
