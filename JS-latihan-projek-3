@@ -1,0 +1,123 @@
+const readline = require('readline')
+const r1 = readline.createInterface({input: process.stdin, output: process.stdout})
+
+let systemConfig = {
+    systemName: "NIDS v1.0",
+    version: 1.0,
+    isActive: true,
+    maxAttempts: 3,
+    blockedIPs: [],
+    alertlog: []
+}
+
+const threatDatabase = {
+    PortScan : {
+        severity: "HIGH",
+        port: 0,
+        description: "Port telah dilakukan scanning",
+        autoBlock: false
+    },
+    BruteForce: {
+        severity: "CRITICAL",
+        port: 22,
+        description: "Terdapat penyerangan secara brutal",
+        autoBlock: true
+    },
+    SQLInjection: {
+        severity: "CRITICAL",
+        port: 3306,
+        description: "Terdapat script injeksi SQL",
+        autoBlock: true
+    },
+    DDoS: {
+        severity: "HIGH",
+        port: 80,
+        description: "Penyerangan DDoS",
+        autoBlock: false
+    }
+}
+
+function displayBanner() {
+    console.log(`
+╔════════════════════════════════════════╗
+║   "NETWORK INTRUSION DETECTION SYSTEM" ║
+║   ${systemConfig.systemName} | Version ${systemConfig.version}                ║
+║   Status: ACTIVE                       ║
+╚════════════════════════════════════════╝
+`)
+}
+
+displayBanner()
+
+function blockIP(ipAddress) {
+    let status = systemConfig.blockedIPs.includes(ipAddress) === true ? `⚠️ IP sudah diblokir sebelumnya` : systemConfig.push(ipAddress) `🚫 IP berhasil diblokir`
+    console.log(status);
+}
+
+function createAlert(ipAddress, threatType, severity) {
+    const alert = {
+        id: systemConfig.alertlog+= 1,
+        timestamp: new Date().toLocaleString(),
+        ip: ipAddress,
+        threat: threatType,
+        severity: severity,
+        resolved: false
+    }
+    systemConfig.push(alert)
+    return `${alert}`
+}
+
+function analyzeThreate(ipAddress, threatType) {
+    if (threatDatabase[threatType].include(threatType)) {
+        threatDatabase[threatType].push(threat)
+    } else {
+        return "❓ Threat type tidak dikenali"
+    }
+    createAlert(ipAddress, threatType, severity)
+    switch (threat.severity) {
+        case "CRITICAL":
+            console.log("🔴 CRITICAL ALERT!") 
+            break;
+        case "HIGH":
+            console.log("🟠 HIGH ALERT!")
+            break;
+        case "MEDIUM":
+            console.log("🟡 MEDIUM ALERT!")
+            break;
+        default: 
+            console.log("🟢 LOW - Monitoring only")
+    }
+    console.log(`
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📡 IP Address  : ${ipAddress}
+⚠️  Threat      : ${threatType}
+🔌 Port        : ${port}
+📝 Description : ${description}
+🕐 Timestamp   : ${timestamp}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+`)
+    if (threatDatabase.autoblock === true) {
+        function blockIP(ipAddress);
+    }
+}
+
+function showStatus() {
+    console.log(`${systemConfig.alertlog.length}`)
+    console.log(`${systemConfig.blockedIPs.length}`)
+    const status = systemConfig.alertLog.length > 0 ? `⚠️ Sistem mendeteksi ancaman aktif` : `✅ Sistem aman, tidak ada ancaman terdeteksi`
+}
+
+function showMenu() {
+    console.log(`
+        ╔══════════════════════════════╗
+║         MAIN MENU            ║
+║  1. Analyze Threat           ║
+║  2. Block IP Manual          ║
+║  3. Show System Status       ║
+║  4. Exit                     ║
+╚══════════════════════════════╝
+Pilih menu (1-4):
+        `)
+}
+
+rl.question(choice, handleMenu(choice)) 
