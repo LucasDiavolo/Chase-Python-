@@ -68,8 +68,8 @@ function createAlert(ipAddress, threatType, severity) {
 }
 
 function analyzeThreat(ipAddress, threatType) {
-    if (threatDatabase[threatType].include(threatType)) {
-        threatDatabase[threatType].push(threat)
+    if (threatDatabase[threatType]) {
+       let threat = threatDatabase[threatType]
     } else {
         return "❓ Threat type tidak dikenali"
     }
@@ -91,9 +91,9 @@ function analyzeThreat(ipAddress, threatType) {
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📡 IP Address  : ${ipAddress}
 ⚠️  Threat      : ${threatType}
-🔌 Port        : ${port}
-📝 Description : ${description}
-🕐 Timestamp   : ${timestamp}
+🔌 Port        : ${threat.port}
+📝 Description : ${threat.description}
+🕐 Timestamp   : ${alert.timestamp}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 `)
     if (threatDatabase.autoblock === true) {
