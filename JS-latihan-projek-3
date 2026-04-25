@@ -63,8 +63,8 @@ function createAlert(ipAddress, threatType, severity) {
         severity: severity,
         resolved: false
     }
-    systemConfig.push(alert)
-    return `${alert}`
+    systemConfig.alertLog.push(alert)
+    return alert
 }
 
 function analyzeThreat(ipAddress, threatType) {
