@@ -1,5 +1,5 @@
 const readline = require('readline')
-const r1 = readline.createInterface({input: process.stdin, output: process.stdout})
+const rl = readline.createInterface({input: process.stdin, output: process.stdout})
 
 let systemConfig = {
     systemName: "NIDS v1.0",
@@ -7,7 +7,7 @@ let systemConfig = {
     isActive: true,
     maxAttempts: 3,
     blockedIPs: [],
-    alertlog: []
+    alertLog: []
 }
 
 const threatDatabase = {
@@ -56,7 +56,7 @@ function blockIP(ipAddress) {
 
 function createAlert(ipAddress, threatType, severity) {
     const alert = {
-        id: systemConfig.alertlog+= 1,
+        id: systemConfig.alertlog + 1,
         timestamp: new Date().toLocaleString(),
         ip: ipAddress,
         threat: threatType,
