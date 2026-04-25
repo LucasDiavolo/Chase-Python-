@@ -96,8 +96,8 @@ function analyzeThreat(ipAddress, threatType) {
 🕐 Timestamp   : ${alert.timestamp}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 `)
-    if (threatDatabase.autoblock === true) {
-        function blockIP(ipAddress);
+    if (threat.autoBlock === true) {
+        blockIP(ipAddress);
     }
 }
 
@@ -105,6 +105,8 @@ function showStatus() {
     console.log(`${systemConfig.alertlog.length}`)
     console.log(`${systemConfig.blockedIPs.length}`)
     const status = systemConfig.alertLog.length > 0 ? `⚠️ Sistem mendeteksi ancaman aktif` : `✅ Sistem aman, tidak ada ancaman terdeteksi`
+    console.log(status)
+    console.log(blockedIPs.forEach())
 }
 
 function showMenu() {
@@ -121,21 +123,25 @@ Pilih menu (1-4):
 }
 
 function handleMenu(choice) {
-    switch (true) {
-        case 1:
-            rl.question("Masukkan IP Address", ipAddress.rl.question("Masukkan tipe ancaman", threatType.analyzeThreat(ipAddress, threatType)))
-            showMenu()
+    switch (choice) {
+        case "1":
+            rl.question("Masukkan IP Address", function(ipAddress) {
+              rl.question("Masukkan tipe ancaman", function(threatType) {
+                analyzeThreat(ipAddress, threatType)
+                showMenu()
+  }
+}
             break;
-        case 2: 
+        case "2": 
             rl.question("Masukkan IP Address", ipAddress)
             blockIP(ipAddress)
             showMenu()
             break;
-        case 3:
+        case "3":
             showStatus()
             showMenu()
             break;
-        case 4:
+        case "4":
             console.log("👋 Sistem NIDS dimatikan. Stay secure!")
             rl.close()
             break;
