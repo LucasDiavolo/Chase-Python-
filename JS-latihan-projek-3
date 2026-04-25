@@ -50,7 +50,7 @@ function displayBanner() {
 displayBanner()
 
 function blockIP(ipAddress) {
-    let status = systemConfig.blockedIPs.includes(ipAddress) === true ? `⚠️ IP sudah diblokir sebelumnya` : systemConfig.push(ipAddress) `🚫 IP berhasil diblokir`
+    let status = systemConfig.blockedIPs.includes(ipAddress) ? `⚠️ IP sudah diblokir sebelumnya` : ((systemConfig.push(ipAddress), `🚫 IP berhasil diblokir`)
     console.log(status);
 }
 
