@@ -110,16 +110,16 @@ function showStatus() {
 }
 
 function showMenu() {
-    console.log(`
-        ╔══════════════════════════════╗
+    rl.question(`
+ ╔══════════════════════════════╗
 ║         MAIN MENU            ║
 ║  1. Analyze Threat           ║
 ║  2. Block IP Manual          ║
 ║  3. Show System Status       ║
 ║  4. Exit                     ║
 ╚══════════════════════════════╝
-Pilih menu (1-4):
-        `)
+Pilih menu (1-4): `, function(choice)
+    )
 }
 
 function handleMenu(choice) {
