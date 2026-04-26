@@ -150,7 +150,5 @@ function handleMenu(choice) {
             showMenu()
  }
 }
-rl.question(choice, handleMenu(choice)) 
-
 displayBanner()
 showMenu()
