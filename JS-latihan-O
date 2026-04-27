@@ -146,6 +146,6 @@ let username = {
   "admin": "LucasDevil777",
   "ipAddress": 1926701,
   "user": ["Louis", "Murasame", "Jack"],
-  "password": ["sdFRWW", "RFEWss", "lJKKKs"]
+  "password": ["sdFRWW", "RFEWss", "lJKKKs"],
   "country": ["Miasma", "Red Mist"]
 }
