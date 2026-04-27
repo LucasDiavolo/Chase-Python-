@@ -1,5 +1,5 @@
 const readline = require('readline')
-const r1 = readline.createInterface({input: process.stdin, output: process.stdout})
+const rl = readline.createInterface({input: process.stdin, output: process.stdout})
 
 let systemConfig = {
     systemName: "NIDS v1.0",
@@ -7,7 +7,7 @@ let systemConfig = {
     isActive: true,
     maxAttempts: 3,
     blockedIPs: [],
-    alertlog: []
+    alertLog: []
 }
 
 const threatDatabase = {
@@ -50,26 +50,26 @@ function displayBanner() {
 displayBanner()
 
 function blockIP(ipAddress) {
-    let status = systemConfig.blockedIPs.includes(ipAddress) === true ? `⚠️ IP sudah diblokir sebelumnya` : systemConfig.push(ipAddress) `🚫 IP berhasil diblokir`
+    let status = systemConfig.blockedIPs.includes(ipAddress) ? `⚠️ IP sudah diblokir sebelumnya` : ((systemConfig.push(ipAddress), `🚫 IP berhasil diblokir`)
     console.log(status);
 }
 
 function createAlert(ipAddress, threatType, severity) {
     const alert = {
-        id: systemConfig.alertlog+= 1,
+        id: systemConfig.alertlog + 1,
         timestamp: new Date().toLocaleString(),
         ip: ipAddress,
         threat: threatType,
         severity: severity,
         resolved: false
     }
-    systemConfig.push(alert)
-    return `${alert}`
+    systemConfig.alertLog.push(alert)
+    return alert
 }
 
 function analyzeThreat(ipAddress, threatType) {
-    if (threatDatabase[threatType].include(threatType)) {
-        threatDatabase[threatType].push(threat)
+    if (threatDatabase[threatType]) {
+       let threat = threatDatabase[threatType]
     } else {
         return "❓ Threat type tidak dikenali"
     }
@@ -91,13 +91,13 @@ function analyzeThreat(ipAddress, threatType) {
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📡 IP Address  : ${ipAddress}
 ⚠️  Threat      : ${threatType}
-🔌 Port        : ${port}
-📝 Description : ${description}
-🕐 Timestamp   : ${timestamp}
+🔌 Port        : ${threat.port}
+📝 Description : ${threat.description}
+🕐 Timestamp   : ${alert.timestamp}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 `)
-    if (threatDatabase.autoblock === true) {
-        function blockIP(ipAddress);
+    if (threat.autoBlock === true) {
+        blockIP(ipAddress);
     }
 }
 
@@ -105,37 +105,43 @@ function showStatus() {
     console.log(`${systemConfig.alertlog.length}`)
     console.log(`${systemConfig.blockedIPs.length}`)
     const status = systemConfig.alertLog.length > 0 ? `⚠️ Sistem mendeteksi ancaman aktif` : `✅ Sistem aman, tidak ada ancaman terdeteksi`
+    console.log(status)
+    console.log(blockedIPs.forEach())
 }
 
 function showMenu() {
-    console.log(`
-        ╔══════════════════════════════╗
+    rl.question(`
+ ╔══════════════════════════════╗
 ║         MAIN MENU            ║
 ║  1. Analyze Threat           ║
 ║  2. Block IP Manual          ║
 ║  3. Show System Status       ║
 ║  4. Exit                     ║
 ╚══════════════════════════════╝
-Pilih menu (1-4):
-        `)
+Pilih menu (1-4): `, function(choice)
+    )
 }
 
 function handleMenu(choice) {
-    switch (true) {
-        case 1:
-            rl.question("Masukkan IP Address", ipAddress.rl.question("Masukkan tipe ancaman", threatType.analyzeThreat(ipAddress, threatType)))
-            showMenu()
+    switch (choice) {
+        case "1":
+            rl.question("Masukkan IP Address", function(ipAddress) {
+              rl.question("Masukkan tipe ancaman", function(threatType) {
+                analyzeThreat(ipAddress, threatType)
+                showMenu()
+  }
+}
             break;
-        case 2: 
+        case "2": 
             rl.question("Masukkan IP Address", ipAddress)
             blockIP(ipAddress)
             showMenu()
             break;
-        case 3:
+        case "3":
             showStatus()
             showMenu()
             break;
-        case 4:
+        case "4":
             console.log("👋 Sistem NIDS dimatikan. Stay secure!")
             rl.close()
             break;
@@ -144,7 +150,5 @@ function handleMenu(choice) {
             showMenu()
  }
 }
-rl.question(choice, handleMenu(choice)) 
-
 displayBanner()
 showMenu()
