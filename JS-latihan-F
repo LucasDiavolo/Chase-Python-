@@ -213,7 +213,6 @@ let strTest1 = "Congratulation"
 console.log(strTest1.indexOf("on", 12));
 
 const readline = require("readline");
-
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -221,7 +220,7 @@ const rl = readline.createInterface({
 
 // projek simpel 1
 function secretGuess(secretNum) {
-  if (secretNum === 7) {
+  if (secretNum == 7) {
     return `Correct!`
   } else if (secretNum > 7) {
     return `Too High!`
@@ -230,9 +229,7 @@ function secretGuess(secretNum) {
   }
 }
 
-rl.question("Guess the number: ", function(answer) {
-  let guess = Number(answer);
-  checkGuess(guess);
+rl.question(`Guess the number: `, (secretNum) => {
+  console.log(secretGuess(secretNum))
   rl.close();
 });
-
