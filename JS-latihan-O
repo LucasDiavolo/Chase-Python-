@@ -149,3 +149,13 @@ let username = {
   "password": ["sdFRWW", "RFEWss", "lJKKKs"],
   "country": ["Miasma", "Red Mist"]
 }
+
+function clearMiasma(miasmaConct) {
+  if (miasmaConct >= 70) {
+    console.log("Close the door.")
+  } else if (miasmaConct = 50) {
+    console.log("Get inside, Miasma getting thick.")
+  } else if (miasmaConct <= 20) {
+    console.log("Stay Clear and Safe.")
+  }
+}
