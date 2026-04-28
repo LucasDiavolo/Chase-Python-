@@ -112,6 +112,11 @@ const fortune5 = "It would be wise to avoid the color red today.";
 const numberMin = 1;
 const numberMax = 5;
 
+const numbers = (1, 2, 3, 4)
+
+const randomNum1 = Math.floor(Math.random() * numbers)
+console.log(randomNum1)
+
 const randomNumber = Math.floor(Math.random() * ( numberMax - numberMin + 1)) + numberMin;
 console.log(randomNumber);
 
@@ -198,3 +203,4 @@ if (1 == "1") {
   let bTUY = 3;
   console.log(aTUY + bTUY);
 }
+
