@@ -228,11 +228,23 @@ let questions = [
   }
 ];
 
-function getRandomQuestion(question) {
+function getRandomQuestion() {
   let randomQuestion = Math.floor(Math.random() * questions.length)
-  return question[randomQuestion]
+  return questions[randomQuestion].question
 }
 
-function getRandomComputerChoice(choiceArr) {
-
+function getRandomComputerChoice() {
+  let randomChoice = Math.floor(Math.random() * questions[0].choices.length)
+  return questions[0].choices[randomChoice]
 }
+
+function getResult(question, compChoice) {
+  if (compChoice === questions[0].answer) {
+    return `The computer's choice is correct!`
+  } else if (compChoice !== questions[0].answer) {
+    return `The computer's choice is wrong. The correct answer is: ${questions[0].answer}`
+  }
+}
+
+console.log(getRandomQuestion());
+console.log(getRandomComputerChoice());
