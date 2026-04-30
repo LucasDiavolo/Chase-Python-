@@ -218,3 +218,21 @@ recipe3.totalIngredients = getTotalIngredients(recipe3.ingredients);
 recipe3.difficultyLevel = getDifficultyLevel(recipe3.cookingTime);
 
 console.log(recipes)
+
+let questions = [
+  {
+  category: "animeGenius",
+  question: "Who is the GOAT (Genius of All Time) in anime-verse?",
+  choices: ["Ayanokoji", "Lelouch", "L"],
+  answer: "L"
+  }
+];
+
+function getRandomQuestion(question) {
+  let randomQuestion = Math.floor(Math.random() * questions.length)
+  return question[randomQuestion]
+}
+
+function getRandomComputerChoice(choiceArr) {
+
+}
