@@ -220,11 +220,40 @@ recipe3.difficultyLevel = getDifficultyLevel(recipe3.cookingTime);
 console.log(recipes)
 
 let questions = [
+  //OBJEK-SOAL-1
   {
-  category: "animeGenius",
-  question: "Who is the GOAT (Genius of All Time) in anime-verse?",
-  choices: ["Ayanokoji", "Lelouch", "L"],
-  answer: "L"
+    category: "animeGenius",
+    question: "Who is the GOAT (Genius of All Time) in anime-verse?",
+    choices: ["Ayanokoji", "Lelouch", "L"],
+    answer: "L"
+  },
+  //OBJEK-SOAL-2
+  {
+    category: "animeGeniusOP",
+    question: "Who is the most OP Genius ability in anime-verse?",
+    choices: ["Kisuke", "Apex", "Lelouch"],
+    answer: "Kisuke"
+  },
+  //OBJEK-SOAL-3
+  {
+    category: "animeGeniusTrash",
+    question: "Who is the most overrated Genius in anime-verse?",
+    choices: ["Ayanokoji", "Light", "Shikamaru"],
+    answer: "Ayanokoji"
+  },
+  //OBJEK-SOAL-4
+  {
+    category: "manhwaGenius",
+    question: "Who is the GOAT (Genius of All Time) in manhwa-verse?",
+    choices: ["Dokja", "Peter", "Rafayel"],
+    answer: "Dokja"
+  },
+  //OBJEK-SOAL-5
+  {
+    category: "manhwaGanteng",
+    question: "Who is the HOT (Handsome of all Time) in manhwa-verse?",
+    choices: ["Dokja", "Rafael", "Karatzem"],
+    answer: "Dokja"
   }
 ];
 
@@ -234,8 +263,9 @@ function getRandomQuestion() {
 }
 
 function getRandomComputerChoice() {
-  let randomChoice = Math.floor(Math.random() * questions[0].choices.length)
-  return questions[0].choices[randomChoice]
+  let randomQuestion = Math.floor(Math.random() * questions.length)
+  let randomChoice = Math.floor(Math.random() * questions[randomQuestion].choices.length)
+  return questions[randomQuestion].choices[randomChoice]
 }
 
 function getResult(question, compChoice) {
@@ -246,5 +276,11 @@ function getResult(question, compChoice) {
   }
 }
 
+const callRandomQuestion = getRandomQuestion()
+const callRandomComputerChoice = getRandomComputerChoice() 
+
 console.log(getRandomQuestion());
 console.log(getRandomComputerChoice());
+
+console.log(getResult(callRandomQuestion, callRandomComputerChoice))
+
