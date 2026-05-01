@@ -257,30 +257,27 @@ let questions = [
   }
 ];
 
-function getRandomQuestion() {
-  let randomQuestion = Math.floor(Math.random() * questions.length)
-  return questions[randomQuestion].question
-}
+function getRandomQuestion(questionsArray) {
+  let randomQuestion = Math.floor(Math.random() * questionsArray.length)
+  return questionsArray[randomQuestion]
+};
 
-function getRandomComputerChoice() {
-  let randomQuestion = Math.floor(Math.random() * questions.length)
-  let randomChoice = Math.floor(Math.random() * questions[randomQuestion].choices.length)
-  return questions[randomQuestion].choices[randomChoice]
-}
+function getRandomComputerChoice(choicesArray) {
+  let randomChoice = Math.floor(Math.random() * choicesArray.length)
+  return choicesArray[randomChoice]
+};
 
-function getResult(question, compChoice) {
-  if (compChoice === questions[0].answer) {
+function getResults(questionR, compChoice) {
+  if (compChoice === questionR.answer) {
     return `The computer's choice is correct!`
-  } else if (compChoice !== questions[0].answer) {
-    return `The computer's choice is wrong. The correct answer is: ${questions[0].answer}`
+  } else {
+    return `The computer's choice is wrong. The correct answer is: ${questionR.answer}`
   }
-}
+};
 
-const callRandomQuestion = getRandomQuestion()
-const callRandomComputerChoice = getRandomComputerChoice() 
+const targetQuestion = getRandomQuestion(questions);
+const targetRandomChoice = getRandomComputerChoice(targetQuestion.choices);
 
-console.log(getRandomQuestion());
-console.log(getRandomComputerChoice());
-
-console.log(getResult(callRandomQuestion, callRandomComputerChoice))
-
+console.log(targetQuestion.question);
+console.log(targetRandomChoice);
+console.log(getResults(targetQuestion, targetRandomChoice));
