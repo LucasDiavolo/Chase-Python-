@@ -304,3 +304,20 @@ const recordCollection = {
     albumTitle: 'ABBA Gold'
   }
 };
+
+function updateRecords(record, id, prop, value) {
+if (typeof value === string && value.length > 0) {
+  if (prop !== "tracks") {
+    return record.id = prop.value
+  } else if (prop === "tracks") {
+    if (record.id.hasOwnProperty("tracks")) {
+      return record.id.prop.push(value)
+    }
+  } else if (!record.id.hasOwnProperty("tracks")) {
+    return record.id.prop = []
+  }
+} else {
+    delete record.id.prop
+}
+return record.id.prop.value
+}
