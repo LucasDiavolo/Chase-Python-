@@ -1,47 +1,37 @@
-let systemConfig = {
-    systemName: "NIDS v1.0",
-    version: 1.0,
-    isActive: true,
-    maxAttempts: 3,
-    blockedIPs: [],
-    alertlog: []
-}
+const recordCollection = {
+  2548: {
+    albumTitle: 'Slippery When Wet',
+    artist: 'Bon Jovi',
+    tracks: ['Let It Rock', 'You Give Love a Bad Name']
+  },
+  2468: {
+    albumTitle: '1999',
+    artist: 'Prince',
+    tracks: ['1999', 'Little Red Corvette']
+  },
+  1245: {
+    artist: 'Robert Palmer',
+    tracks: []
+  },
+  5439: {
+    albumTitle: 'ABBA Gold'
+  }
+};
 
-const threatDatabase = {
-    PortScan : {
-        severity: "HIGH",
-        port: 0,
-        description: "Port telah dilakukan scanning",
-        autoBlock: false
-    },
-    BruteForce: {
-        severity: "CRITICAL",
-        port: 22,
-        description: "Terdapat penyerangan secara brutal",
-        autoBlock: true
-    },
-    SQLInjection: {
-        severity: "CRITICAL",
-        port: 3306,
-        description: "Terdapat script injeksi SQL",
-        autoBlock: true
-    },
-    DDoS: {
-        severity: "HIGH",
-        port: 80,
-        description: "Penyerangan DDoS",
-        autoBlock: false
+function updateRecords(record, id, prop, value) {
+if (value === "") {
+  delete record[id][prop];
+} else if (prop !== "tracks" && value !== "") {
+    record[id][prop] = value;
+} else if (prop === "tracks" && value !== "") {
+    if (!record[id].hasOwnProperty("tracks")) {
+     record[id][prop] = [];
     }
+    record[id][prop].push(value);
+  }
+return record;
 }
 
-function displayBanner() {
-    console.log(`
-╔════════════════════════════════════════╗
-║   "NETWORK INTRUSION DETECTION SYSTEM" ║
-║   ${systemConfig.systemName} | Version ${systemConfig.version}                ║
-║   Status: ACTIVE                       ║
-╚════════════════════════════════════════╝
-`)
-}
-
-displayBanner()
+console.log(updateRecords(recordCollection, 5439, "artist", "ABBA"))
+console.log(updateRecords(recordCollection, 5439, "tracks", "Take a Chance on Me"))
+updateRecords(recordCollection, 2548, "artist", "")
