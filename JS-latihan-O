@@ -306,18 +306,17 @@ const recordCollection = {
 };
 
 function updateRecords(record, id, prop, value) {
-if (typeof value === string && value.length > 0) {
-  if (prop !== "tracks") {
-    return record.id = prop.value
-  } else if (prop === "tracks") {
-    if (record.id.hasOwnProperty("tracks")) {
-      return record.id.prop.push(value)
+if (typeof value === "") {
+  delete record[id][prop];
+} else if (prop !== "tracks" && value !== "") {
+    record[id][prop] = value;
+} else if (prop === "tracks" && value !== "") {
+    if (!record[id].hasOwnProperty("tracks")) {
+     return record[id][prop] = [];
     }
-  } else if (!record.id.hasOwnProperty("tracks")) {
-    return record.id.prop = []
+    return record.id.prop.push(value)
   }
-} else {
-    delete record.id.prop
+return record;
 }
-return record.id.prop.value
-}
+
+console.log(updateRecords(recordCollection, 5439, "artist", "ABBA"))
