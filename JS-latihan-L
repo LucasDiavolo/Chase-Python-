@@ -1,0 +1,13 @@
+for (let i = 0; i < 3; i++) {
+    console.log(i)
+}
+
+for (let a = "I love you"; a = 5; a++) {
+    console.log(a)
+}
+
+const lucasPcSts = "error"
+
+for (let sign of lucasPcSts) {
+    console.log(sign)
+}
