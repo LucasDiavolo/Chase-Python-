@@ -11,3 +11,25 @@ const lucasPcSts = "error"
 for (let sign of lucasPcSts) {
     console.log(sign)
 }
+
+const rStatus = {
+    name: `Lucas`,
+    age: `19`,
+    bloodCode: `Devil`,
+    fiance: {
+        name: `Mia`,
+        age: `19`,
+        bloodCode: `Arthemis`
+    }
+};
+
+for (const showStat in rStatus) {
+    console.log(rStatus[showStat])
+};
+
+let parry = 0
+
+do {
+    console.log(parry)
+    parry++;
+} while (parry < 5)
