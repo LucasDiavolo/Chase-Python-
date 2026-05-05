@@ -108,19 +108,6 @@ function showStatus() {
     systemConfig.blockedIPs.forEach(console.log(status))
 }
 
-function showMenu() {
-    console.log(`
-        ╔══════════════════════════════╗
-║         MAIN MENU            ║
-║  1. Analyze Threat           ║
-║  2. Block IP Manual          ║
-║  3. Show System Status       ║
-║  4. Exit                     ║
-╚══════════════════════════════╝
-Pilih menu (1-4):
-        `)
-}
-
 function handleMenu(choice) {
     switch (choice) {
         case "1":
@@ -132,9 +119,10 @@ function handleMenu(choice) {
             })
             break;
         case "2": 
-            rl.question("Masukkan IP Address", ipAddress)
-            blockIP(ipAddress)
-            showMenu()
+            rl.question("Masukkan IP Address", function(ipAddress) {
+                    blockIP(ipAddress)
+                    showMenu()
+            })
             break;
         case "3":
             showStatus()
@@ -149,10 +137,24 @@ function handleMenu(choice) {
             showMenu()
  }
 }
-rl.question(choice, handleMenu(choice)) 
+
+function showMenu() {
+    console.log(`
+        ╔══════════════════════════════╗
+║         MAIN MENU            ║
+║  1. Analyze Threat           ║
+║  2. Block IP Manual          ║
+║  3. Show System Status       ║
+║  4. Exit                     ║
+╚══════════════════════════════╝
+Pilih menu (1-4):
+        `)
+        rl.question("Menunggu input user", function(choice) {
+            handleMenu(choice)
+        })
+}
 
 displayBanner()
 showMenu()
 
-//pppp
 
