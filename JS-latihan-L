@@ -33,3 +33,18 @@ do {
     console.log(parry)
     parry++;
 } while (parry < 5)
+
+const rStatus2 = {
+    name: "Mia Karnstein",
+    age: 19,
+    bloodCode: "Artemis",
+    fiance: {
+        name: "Lucas Diavolo",
+        age: 19,
+        bloodCode: "Devil"
+    }
+}
+
+for (const showRsts in rStatus2) {
+    console.log(rStatus2[showRsts])
+}
