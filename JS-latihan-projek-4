@@ -1,0 +1,54 @@
+const rawThreatData = `[
+    {
+        "id": 1,
+        "ipAddress": "192.168.1.105",
+        "threatType": "BruteForce",
+        "severity": "CRITICAL",
+        "country": "Russia",
+        "attackCount": 450,
+        "isBlocked": false,
+        "tags": ["ssh", "authentication", "bruteforce"]
+    }
+    {
+        "id": 2,
+        "ipAddress": "10.0.0.42",
+        "threatType": "SQLInjection",
+        "severity": "CRITICAL",
+        "country": "China",
+        "attackCount": 230,
+        "isBlocked": true,
+        "tags": ["database", "injection", "webapp"]
+    },
+    {
+        "id": 3,
+        "ipAddress": "172.16.0.88",
+        "threatType": "PortScan",
+        "severity": "HIGH",
+        "country": "Brazil",
+        "attackCount": 120,
+        "isBlocked": false,
+        "tags": ["reconnaissance", "scanning"]
+    },
+    {
+        "id": 4,
+        "ipAddress": "203.0.113.45",
+        "threatType": "DDoS",
+        "severity": "HIGH",
+        "country": "Iran",
+        "attackCount": 8900,
+        "isBlocked": true,
+        "tags": ["volumetric", "flooding", "botnet"]
+    },
+    {
+        "id": 5,
+        "ipAddress": "198.51.100.7",
+        "threatType": "Phishing",
+        "severity": "MEDIUM",
+        "country": "Nigeria",
+        "attackCount": 67,
+        "isBlocked": false,
+        "tags": ["email", "social-engineering"]
+    }
+]`
+
+let threatList = JSON.parse(rawThreatData)
