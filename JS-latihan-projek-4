@@ -52,3 +52,12 @@ const rawThreatData = `[
 ]`
 
 let threatList = JSON.parse(rawThreatData)
+
+let threatSummary = {
+    totalThreats: 0,
+    criticalCount: 0,
+    highCount: 0,
+    mediumCount: 0,
+    totalAttacks: 0,
+    unblockedThreats: []
+}
