@@ -61,3 +61,7 @@ let threatSummary = {
     totalAttacks: 0,
     unblockedThreats: []
 }
+
+for (let i = 0; i < threatList.length; i++) {
+    threatSummary.totalThreats += 1;
+}
