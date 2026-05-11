@@ -66,6 +66,10 @@ for (let i = 0; i < threatList.length; i++) {
     threatSummary.totalThreats += 1;
     let attackCount = threatSummary.totalAttacks[i]
     if (rawThreatData.severity = "CRITICAL") {
-        add
+        attackCount = criticalCount
+    } else if (rawThreatData.severity = "HIGH") {
+        attackCount = highCount
+    } else if (rawThreatData.severity = "MEDIUM") {
+        attackCount = mediumCount
     }
 }
