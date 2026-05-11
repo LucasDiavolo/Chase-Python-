@@ -64,4 +64,8 @@ let threatSummary = {
 
 for (let i = 0; i < threatList.length; i++) {
     threatSummary.totalThreats += 1;
+    let attackCount = threatSummary.totalAttacks[i]
+    if (rawThreatData.severity = "CRITICAL") {
+        add
+    }
 }
