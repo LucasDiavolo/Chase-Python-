@@ -72,4 +72,7 @@ for (let i = 0; i < threatList.length; i++) {
     } else if (rawThreatData.severity = "MEDIUM") {
         attackCount = mediumCount
     }
+    if (threatSummary.criticalCount > 5) {
+        let autoBlock = 1
+    }
 }
